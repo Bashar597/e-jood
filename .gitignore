@@ -1,0 +1,6 @@
+# Secrets
+config.php
+.env
+
+# Logs & temp
+*.log

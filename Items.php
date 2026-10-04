@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<?php
+  session_start();
+  //if ($_SESSION['loggedin'] != true){
+
+    
+    if (!isset($_SESSION['UserFullName'])) {
+  
+    header('Location: login.html');
+    exit;
+  }
+    
+?>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title> Items Dashboard</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/gallery/favicon.png" rel="icon">
+  <link href="assets/img/gallery/favicon.png" rel="apple-touch-icon">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Bootslander - v4.10.0
+  * Template URL: https://bootstrapmade.com/bootslander-free-bootstrap-landing-page-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center ">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <div class="logo">
+        <h1><a href="index.php"><span><img src="assets/img/gallery/e-Jood.png" alt="logo" width="100" height="100"></span></a></h1> 
+        <!-- Uncomment below if you prefer to use an image logo -->
+       
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="http://localhost/EJood/">Home</a></li>
+          <li><a class="nav-link scrollto" href="index.html#about">About</a></li>
+          <li><a class="nav-link scrollto" href="itemsdashboard.php">Items</a></li>
+          <li class="dropdown"><a href="#"><span>Organizations</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="Add_organization.html">Add Organizations</a></li>
+              <li class="dropdown">
+              <li><a href="display_All_Organizations.php">view organization</a></li>
+            </ul>
+          </li>
+       
+          <li class="dropdown"><a href="#"><span>Volunteers</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="Add_volunteer.html">Add Volunteers</a></li>
+              <li class="dropdown">
+              <li><a href="display_All_volunteers.php">view Volunteers</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="#"><span>Donors</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="Add_donor.html">Add Donors</a></li>
+              <li class="dropdown">
+              <li><a href="display_all_donors.php">view Donors</a></li>
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="index.html">login</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2> Items Dashboard</h2>
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li> Items Dashboard</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs Section -->
+
+    <section class="inner-page">
+      <div class="container">
+        <div class="col-12">
+          <div class="card recent-sales overflow-auto">
+
+            <div class="filter">
+              <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                <li class="dropdown-header text-start">
+                  <h6>Filter</h6>
+                </li>
+
+                <li><a class="dropdown-item" href="#">Today</a></li>
+                <li><a class="dropdown-item" href="#">This Month</a></li>
+                <li><a class="dropdown-item" href="#">This Year</a></li>
+              </ul>
+            </div>
+
+            <div class="card-body">
+              <h5 class="card-title">Recent Sales <span>| Today</span></h5>
+
+              <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns"><div class="dataTable-top"><div class="dataTable-dropdown"><label><select class="dataTable-selector"><option value="5">5</option><option value="10" selected="">10</option><option value="15">15</option><option value="20">20</option><option value="25">25</option></select> entries per page</label></div><div class="dataTable-search"><input class="dataTable-input" placeholder="Search..." type="text"></div></div><div class="dataTable-container"><table class="table table-borderless datatable dataTable-table">
+                <thead>
+                  <tr><th scope="col" data-sortable="" style="width: 25%;"><a href="#" class="dataTable-sorter">#</a></th><th scope="col" data-sortable="" style="width: 25%;"><a href="#" class="dataTable-sorter">Donor</a></th><th scope="col" data-sortable="" style="width: 25%;"><a href="#" class="dataTable-sorter">Product</a></th><th scope="col" data-sortable="" style="width: 25%;"><a href="#" class="dataTable-sorter">Date</a></th><th scope="col" data-sortable="" style="width: 15.0552%;"><a href="#" class="dataTable-sorter">Status</a></th></tr>
+                </thead>
+                <tbody><tr><th scope="row"><a href="#">#2457</a></th><td>Bravo Supermarket</td><td><a href="#" class="text-primary">Cans</a></td><td>feb-5-2023 10:33</td><td><span class="badge bg-success">Approved</span></td></tr><tr><th scope="row"><a href="#">#2147</a></th><td>KFC Resturant</td><td><a href="#" class="text-primary">Chicken</a></td><td>fed-6-2023  14:57</td><td><span class="badge bg-warning">Pendding</span></td></tr><tr><th scope="row"><a href="#">#2049</a></th><td>Al-Juneidi Company</td><td><a href="#" class="text-primary">Dairy </a></td><td>feb-6-2023  11:43</td><td><span class="badge bg-success">Approved</span></td></tr><tr><th scope="row"><a href="#">#2644</a></th><td>Jericho Company</td><td><a href="#" class="text-primar">Water</a></td><td>feb-8-2023  12:30</td><td><span class="badge bg-danger">Rejected</span></td></tr><tr><th scope="row"><a href="#">#2644</a></th><td>Sun  Clothing Company</td><td><a href="#" class="text-primary">Shirts</a></td><td>feb-9-2023  09:26</td><td><span class="badge bg-success">Approved</span></td></tr></tbody>
+              </table></div><div class="dataTable-bottom"><div class="dataTable-info">Showing 1 to 5 of 5 entries</div><nav class="dataTable-pagination"><ul class="dataTable-pagination-list"></ul></nav></div></div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-info">
+              <h3>eJood</h3>
+              <p class="pb-3"><em>eJood is a pioneering project to transfer food, clothing and other basic things of life to the less fortunate groups in society.for more information:
+              </em></p>
+              <p>
+                <strong>Location:</strong> Ramallah, AL-Bireh<br>
+                <strong>Phone:</strong> 0569040666<br>
+                <strong>Email:</strong> basharshunnar8@gmail.com<br>
+              </p>
+              <div class="social-links mt-3">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="index.php">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="index.php#about">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="index.php#features">Features</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="Add_organization.php">Join us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="Add_volunteer.php">Become a Volunteer</a></li>
+            </ul>
+          </div>
+
+
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Our Newsletter</h4>
+            <p>subscribe to our Newsletter for daily news.</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>eJood</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/bootslander-free-bootstrap-landing-page-template/ -->
+        Designed by <a href="http://localhost/EJood/">eJood_developers</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+
+
+</body>
+
+</html>
